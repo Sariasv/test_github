@@ -66,6 +66,8 @@ jobs:
 
       - name: run python script
         run: python3 test.py
+      - name: upload artifacts
+        uses: actions/upload-pages-artifact@v4
       - name: Deploy to GitHub Pages
         id: deploy
         uses: actions/deploy-pages@v4
