@@ -1,1 +1,22 @@
-git add .
+name: continous_integration
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'  # Specify the Python version you want to use
+          
+      - name: run python script
+        run: python3 test.py
+    
